@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://java.sun.com/xml/ns/javaee" 
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+ <servlet>
+ <!-- 设置servlet的名字 -->
+   <servlet-name>ServeletTest</servlet-name>
+   <!-- 具体的Servlet类 -->
+   <servlet-class>servlet.ServletTest01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <!-- 制定要映射的servlet的名字 -->
+    <servlet-name>ServeletTest</servlet-name>
+    <!-- 指定具体的路径 -->
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>servletLife</servlet-name>
+   <servlet-class>servlet.ServletTest02</servlet-class>
+   <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletLife</servlet-name>
+    <url-pattern>/life</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>httpServlet</servlet-name>
+     <servlet-class>servlet.HttpServletDemo</servlet-class>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>httpServlet</servlet-name>
+     <url-pattern>/httpRequest</url-pattern>
+   </servlet-mapping>
+   
+   <!-- 设置servlet的初始化时机在服务器启东时 -->
+   <servlet>
+     <servlet-name>loadOnServlet</servlet-name>
+     <servlet-class>servlet.LoadOnServlet</servlet-class>
+     <load-on-startup>3</load-on-startup>
+     <!-- load-on-startup有多个servlet时设置启动顺序，1的位置的值必须大于0，如果只有一个，也要设置，并将元素设置成1 -->
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>loadOnServlet</servlet-name>
+     <url-pattern>/loadOn</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+    <servlet-name>HttpServletDeam01</servlet-name>
+    <servlet-class>servlet.HttpServletDeam01</servlet-class>
+    <init-param>
+      <param-name>userName </param-name>
+      <param-value>123456</param-value>
+    </init-param>
+    <init-param>
+      <param-name>password </param-name>
+      <param-value> 456123</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpServletDeam01</servlet-name>
+    <url-pattern>/servlet/HttpServletDeam01</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
